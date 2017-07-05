@@ -1,5 +1,7 @@
 FROM ubuntu:16.04
 
+ENV LANG C.UTF-8
+
 RUN apt update
 RUN apt install -y ffmpeg python3 python3-pip git sqlite3
 
