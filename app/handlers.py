@@ -77,7 +77,6 @@ def download(uid):
     filepath = os.path.join(app.static_folder, filename)
     tmpfile = '%s - %s.mp3' % (artist, title)
     tmppath = os.path.join(app.static_folder, 'tmp/'+tmpfile) 
-    print('Copying %s to %s' % (filename, tmpfile))
     shutil.copyfile(filepath, tmppath)
 
     youtube_mp3.tag(tmppath, options)
