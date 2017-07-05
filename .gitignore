@@ -1,0 +1,7 @@
+*.db
+*.swp
+__pycache__
+.virtualenv
+*.mp3
+db_repository/
+

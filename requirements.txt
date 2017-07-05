@@ -1,0 +1,6 @@
+youtube-dl
+eyed3
+flask
+migrate
+sqlalchemy-migrate
+flask_sqlalchemy
