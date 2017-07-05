@@ -14,7 +14,7 @@ def fetch_youtube(uid, options):
     filename = uid + '.mp3'
     filepath = os.path.join(app.static_folder, filename)
     info = youtube_mp3.download(uid, options)
-    os.rename(filename, filepath)
+    shutil.move(filename, filepath)
 
     title = flask.request.args.get('title')
     if title is None:
@@ -32,19 +32,14 @@ def ensure_existence(uid, options):
     music = models.Music.query.get(uid)
     filename = uid + '.mp3'
     filepath = os.path.join(app.static_folder, filename)
-    exists = True
 
     if music is None:
         print('uid %s not found, redownload' % uid)
-        exists = False
-    
-    if not os.path.isfile(filepath):
+    elif not os.path.isfile(filepath):
         print('file %s.mp3 not found, redownload' % uid)
         db.session.delete(music)
         db.session.commit()
-        exists = False
-
-    if exists:
+    else:
         return music
 
     fetch_youtube(uid, options)

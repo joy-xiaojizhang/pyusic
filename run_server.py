@@ -1,3 +1,3 @@
-#!.virtualenv/bin/python
+#!/bin/python3
 from app import app
-app.run(debug=False, host="127.0.0.1", port=5000)
+app.run(debug=False, host="0.0.0.0", port=5000)

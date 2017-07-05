@@ -6,7 +6,6 @@ import youtube_dl
 
 def tag(filename, info):
     audio = eyed3.load(filename)
-    print(info['artist'] + ' - ' + info['title'])
     audio.tag.artist = info['artist']
     audio.tag.title = info['title']
     audio.tag.save()
