@@ -14,7 +14,7 @@ def fetch_youtube(uid, options):
     filename = uid + '.mp3'
     filepath = os.path.join(app.static_folder, filename)
     info = youtube_mp3.download(uid, options)
-    os.rename(filename, filepath)
+    shutil.move(filename, filepath)
 
     title = flask.request.args.get('title')
     if title is None:
