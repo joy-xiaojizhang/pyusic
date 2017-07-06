@@ -1,14 +1,13 @@
 from app import app, models, db
 
-import flask
+from flask import render_template
 import shutil
 import os
 import youtube_mp3
-from urllib.parse import quote
 
 @app.route('/')
 def index():
-    return "Hello, Pyusic"
+    return render_template('hello.html')
 
 def fetch_youtube(uid, options):
     filename = uid + '.mp3'
